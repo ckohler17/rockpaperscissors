@@ -12,7 +12,7 @@ namespace RockPaperScissors
         public int score;
         public string random;
         public string gesture;
-        List<string> gestures;
+        public List<string> gestures;
 
         //constructor(Builder)
         public Player()
@@ -23,14 +23,8 @@ namespace RockPaperScissors
         }
 
         //member methods(Can Do)
-        public void GenerateRandomGesture()
-        {
-            Random random = new Random();
-            int index = random.Next(gestures.Count);
-            Console.WriteLine(gestures[index]);
-            gesture = Console.ReadLine();
-           
-        }
+        public abstract void DetermineGesture();
+        
 
     }
 }

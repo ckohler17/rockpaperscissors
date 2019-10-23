@@ -13,14 +13,15 @@ namespace RockPaperScissors
         //constructor(Builder)
         public Human()
         {
-            GenerateRandomGesture();
+            
         }
 
         //member methods(Can Do)
 
         public override void DetermineGesture()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Please enter either 'rock' 'paper' 'scissors' 'lizard' or 'spock'");
+            public string gesture = Console.ReadLine();
         }
 
     }

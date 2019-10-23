@@ -13,10 +13,13 @@ namespace RockPaperScissors
         //constructor(Builder)
 
         //member methods(Can Do)
-
         public override void DetermineGesture()
         {
-            throw new NotImplementedException();
+            Random random = new Random();
+            int index = random.Next(gestures.Count);
+            Console.WriteLine(gestures[index]);
+            public string gesture = Console.ReadLine();
+
         }
 
     }

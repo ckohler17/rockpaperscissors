@@ -13,6 +13,31 @@ namespace RockPaperScissors
         //constructor(Builder)
 
         //member methods(Can Do)
+        public void RunGame()
+        {
+
+        }
+        public void DisplayInstructions()
+        {
+
+        }
+        public void DetermineHowManyPlayers()
+        {
+
+        }
+        public void DetermineIfPlayerIsHumanOrComputer()
+        {
+
+        }
+        public void DetermineRoundWinner()
+        {
+
+        }
+        public void DisplayWinner()
+        {
+
+        }
+
 
     }
 }

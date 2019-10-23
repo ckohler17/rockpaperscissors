@@ -11,8 +11,17 @@ namespace RockPaperScissors
         //member variables(Has A)
 
         //constructor(Builder)
+        public Human()
+        {
+            GenerateRandomGesture();
+        }
 
         //member methods(Can Do)
+
+        public override void DetermineGesture()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

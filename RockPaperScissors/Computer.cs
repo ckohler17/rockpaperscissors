@@ -14,5 +14,10 @@ namespace RockPaperScissors
 
         //member methods(Can Do)
 
+        public override void DetermineGesture()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

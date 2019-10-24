@@ -9,15 +9,14 @@ namespace RockPaperScissors
     class Game
     {
         //member variables(Has A)
-        public string player1;
-        public string player2;
-        public string responseToWhoIsPlayer;
+        Player player1;
+        Player player2;
+        public string numberOfPlayers;
 
         //constructor(Builder)
         public Game()
         {
-            player1 = new Player();
-            player2 = new Player();
+           
         }
 
         //member methods(Can Do)
@@ -41,14 +40,36 @@ namespace RockPaperScissors
             Console.WriteLine("Spock vaporizes Rock");
         }
 
-        public void DetermineIfPlayerIsHumanOrComputer()
+        public void DetermineNumberOfPlayers()
         {
-            Console.WriteLine("Would you like to play against the computer? Please respond 'yes' or 'no'.");
-            responseToWhoIsPlayer = Console.ReadLine();
+            Console.WriteLine("How many players will there be? '1' or '2'?");
+            numberOfPlayers = Console.ReadLine();
+        }
+        
+        public void CreatePlayers(string numberOfPlayers)
+        {
+           if(numberOfPlayers == "1")
+            {
+                Player player1 = new Human();
+                Player player2 = new Computer();
+            } else if (numberOfPlayers == "2") {
+                Player player1 = new Human();
+                Player player2 = new Human();
+            }
+        
+            
+        }
+        public void DisplayPlayerNames()
+        {
+            Console.WriteLine(player1.name + "vs" + player2.name);
+        }
+        public void CompareGestures()
+        {
+
         }
         public void DetermineRoundWinner(string gesture)
         {
-            string player1gesture = player1.DetermineGesture();
+            string player1gesture = player1.DetermineGesture(Player gesture);
         }
         public void DisplayWinner()
         {
@@ -58,3 +79,16 @@ namespace RockPaperScissors
 
     }
 }
+
+
+
+//Display Rules
+//Choose 1 or 2 players
+//    Choose player names
+//    choose a gesture
+//    compare gestures
+//    determine round winner
+//    score goes up
+//    check for best 2 out of 3
+//    display winner
+//    play again?

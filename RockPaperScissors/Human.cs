@@ -21,7 +21,12 @@ namespace RockPaperScissors
         public override void DetermineGesture()
         {
             Console.WriteLine("Please enter either 'rock' 'paper' 'scissors' 'lizard' or 'spock'");
-            public string gesture = Console.ReadLine();
+            gesture = Console.ReadLine();
+        }
+        public override void ChooseName()
+        {
+            Console.WriteLine("What is your name?");
+            name = Console.ReadLine();
         }
 
     }

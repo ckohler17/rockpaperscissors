@@ -18,9 +18,15 @@ namespace RockPaperScissors
             Random random = new Random();
             int index = random.Next(gestures.Count);
             Console.WriteLine(gestures[index]);
-            public string gesture = Console.ReadLine();
-
+            gesture = Console.ReadLine();
         }
+
+        public override void ChooseName()
+        {
+            name = "Ralph";
+        }
+
+    }
 
     }
 }

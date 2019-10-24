@@ -10,7 +10,7 @@ namespace RockPaperScissors
     {
         //member variables(Has A)
         public int score;
-        public string random;
+        public string name;
         public string gesture;
         public List<string> gestures;
 
@@ -24,6 +24,9 @@ namespace RockPaperScissors
 
         //member methods(Can Do)
         public abstract void DetermineGesture();
+
+        public abstract void ChooseName();
+
         
 
     }

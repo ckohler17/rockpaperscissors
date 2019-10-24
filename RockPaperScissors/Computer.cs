@@ -20,7 +20,7 @@ namespace RockPaperScissors
             Random random = new Random();
             int index = random.Next(gestures.Count);
             Console.WriteLine(gestures[index]);
-            gesture = Console.ReadLine();
+            gesture = gestures[index];
         }
 
         public override void ChooseName()

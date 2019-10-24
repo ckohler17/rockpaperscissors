@@ -28,9 +28,13 @@ namespace RockPaperScissors
             player1.ChooseName();
             player2.ChooseName();
             DisplayPlayerNames();
-            player1.DetermineGesture();
-            player2.DetermineGesture();
-            CompareGestures();
+                while (player1.score < 2 && player2.score < 2)
+                {
+                    player1.DetermineGesture();
+                    player2.DetermineGesture();
+                    CompareGestures();
+                }
+            DisplayWinner();
         }
         public void DisplayInstructions()
         {
@@ -52,6 +56,12 @@ namespace RockPaperScissors
         {
             Console.WriteLine("How many players will there be? '1' or '2'?");
             numberOfPlayers = Console.ReadLine();
+            if(numberOfPlayers != "1" && numberOfPlayers != "2")
+            {
+                Console.WriteLine("Sorry, I do not recognize that number.");
+                DetermineNumberOfPlayers();
+            }
+            
         }
         
         public void CreatePlayers()
@@ -74,21 +84,26 @@ namespace RockPaperScissors
         }
         public void CompareGestures()
         {
-            if (player1.gesture == "rock" && (player2.gesture != "rock" || player2.gesture != "paper" || player2.gesture != "spock")){
+            if (player1.gesture == "rock" && (player2.gesture != "rock" && player2.gesture != "paper" && player2.gesture != "spock")){
                 Console.WriteLine(player1.name + " wins this round!");
                 player1.score++;
-            } else if (player1.gesture == "paper" && (player2.gesture != "paper" || player2.gesture != "scissors" || player2.gesture != "lizard")){
+                
+            } else if (player1.gesture == "paper" && (player2.gesture != "paper" && player2.gesture != "scissors" && player2.gesture != "lizard")){
                 Console.WriteLine(player1.name + " wins this round!");
                 player1.score++;
-            } else if (player1.gesture == "scissors" && (player2.gesture != "scissors" || player2.gesture != "rock" || player2.gesture != "spock")){
+                
+            } else if (player1.gesture == "scissors" && (player2.gesture != "scissors" && player2.gesture != "rock" && player2.gesture != "spock")){
                 Console.WriteLine(player1.name + " wins this round!");
                 player1.score++;
-            } else if (player1.gesture == "lizard" && (player2.gesture != "lizard" || player2.gesture != "rock" || player2.gesture != "scissors")){
+                
+            } else if (player1.gesture == "lizard" && (player2.gesture != "lizard" && player2.gesture != "rock" && player2.gesture != "scissors")){
                 Console.WriteLine(player1.name + " wins this round!");
                 player1.score++;
-            } else if (player1.gesture == "spock" && (player2.gesture != "spock" || player2.gesture != "lizard" || player2.gesture != "paper")){
+                
+            } else if (player1.gesture == "spock" && (player2.gesture != "spock" && player2.gesture != "lizard" && player2.gesture != "paper")){
                 Console.WriteLine(player1.name + " wins this round!");
                 player1.score++;
+                
             } else if (player1.gesture == player2.gesture)
             {
                 Console.WriteLine("This round is a tie.");
@@ -98,17 +113,20 @@ namespace RockPaperScissors
                 player2.score++;
             }
         }
-        public void DetermineRoundWinner()
+       
+        
+    public void DisplayWinner()
         {
-            while(player1.score < 2 || player2.score < 2)
+            if(player1.score > player2.score)
             {
-                player1.DetermineGesture();
-                player2.DetermineGesture();
+                Console.WriteLine(player1.name + " is the winner!");
+                Console.ReadLine();
             }
-        }
-        public void DisplayWinner()
-        {
-
+            else
+            {
+                Console.WriteLine(player2.name + " is the winner!");
+                Console.ReadLine();
+            }
         }
 
 

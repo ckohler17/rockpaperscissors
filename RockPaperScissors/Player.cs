@@ -17,8 +17,7 @@ namespace RockPaperScissors
         //constructor(Builder)
         public Player()
         {
-            score = 0;
-            name = "something";
+            score = 0;            
             gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
 
         }

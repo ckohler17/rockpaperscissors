@@ -11,6 +11,8 @@ namespace RockPaperScissors
         //member variables(Has A)
 
         //constructor(Builder)
+        
+        
 
         //member methods(Can Do)
         public override void DetermineGesture()
@@ -29,4 +31,4 @@ namespace RockPaperScissors
     }
 
     }
-}
+

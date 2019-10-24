@@ -16,13 +16,21 @@ namespace RockPaperScissors
         //constructor(Builder)
         public Game()
         {
-           
+            
         }
 
         //member methods(Can Do)
         public void RunGame()
         {
-
+            DisplayInstructions();
+            DetermineNumberOfPlayers();
+            CreatePlayers();
+            player1.ChooseName();
+            player2.ChooseName();
+            DisplayPlayerNames();
+            player1.DetermineGesture();
+            player2.DetermineGesture();
+            CompareGestures();
         }
         public void DisplayInstructions()
         {
@@ -46,30 +54,57 @@ namespace RockPaperScissors
             numberOfPlayers = Console.ReadLine();
         }
         
-        public void CreatePlayers(string numberOfPlayers)
+        public void CreatePlayers()
         {
            if(numberOfPlayers == "1")
             {
-                Player player1 = new Human();
-                Player player2 = new Computer();
+                player1 = new Human();
+                player2 = new Computer();
             } else if (numberOfPlayers == "2") {
-                Player player1 = new Human();
-                Player player2 = new Human();
+                player1 = new Human();
+                player2 = new Human();
             }
+            
         
             
         }
         public void DisplayPlayerNames()
         {
-            Console.WriteLine(player1.name + "vs" + player2.name);
+            Console.WriteLine(player1.name + " vs " + player2.name);
         }
         public void CompareGestures()
         {
-
+            if (player1.gesture == "rock" && (player2.gesture != "rock" || player2.gesture != "paper" || player2.gesture != "spock")){
+                Console.WriteLine(player1.name + " wins this round!");
+                player1.score++;
+            } else if (player1.gesture == "paper" && (player2.gesture != "paper" || player2.gesture != "scissors" || player2.gesture != "lizard")){
+                Console.WriteLine(player1.name + " wins this round!");
+                player1.score++;
+            } else if (player1.gesture == "scissors" && (player2.gesture != "scissors" || player2.gesture != "rock" || player2.gesture != "spock")){
+                Console.WriteLine(player1.name + " wins this round!");
+                player1.score++;
+            } else if (player1.gesture == "lizard" && (player2.gesture != "lizard" || player2.gesture != "rock" || player2.gesture != "scissors")){
+                Console.WriteLine(player1.name + " wins this round!");
+                player1.score++;
+            } else if (player1.gesture == "spock" && (player2.gesture != "spock" || player2.gesture != "lizard" || player2.gesture != "paper")){
+                Console.WriteLine(player1.name + " wins this round!");
+                player1.score++;
+            } else if (player1.gesture == player2.gesture)
+            {
+                Console.WriteLine("This round is a tie.");
+            } else
+            {
+                Console.WriteLine(player2.name + " wins this round!");
+                player2.score++;
+            }
         }
-        public void DetermineRoundWinner(string gesture)
+        public void DetermineRoundWinner()
         {
-            string player1gesture = player1.DetermineGesture(Player gesture);
+            while(player1.score < 2 || player2.score < 2)
+            {
+                player1.DetermineGesture();
+                player2.DetermineGesture();
+            }
         }
         public void DisplayWinner()
         {
@@ -82,13 +117,4 @@ namespace RockPaperScissors
 
 
 
-//Display Rules
-//Choose 1 or 2 players
-//    Choose player names
-//    choose a gesture
-//    compare gestures
-//    determine round winner
-//    score goes up
-//    check for best 2 out of 3
-//    display winner
-//    play again?
+

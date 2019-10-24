@@ -14,6 +14,7 @@ namespace RockPaperScissors
         public Human()
         {
             
+           
         }
 
         //member methods(Can Do)
